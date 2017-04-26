@@ -1,0 +1,18 @@
+<div (drop)="handleDrop($event)" (dragover)="handleDragOver($event)" class="editor-container">
+  <div class="editor" #editor></div>
+  <div *ngIf="selectedNode != null" class="button-bar">
+    <button (click)="handleAdd()" class="btn-add">Add</button>
+    <button (click)="handleEdit()" class="btn-add">Edit</button>
+    <button (click)="handleRemove()" class="btn-add">Remove</button>
+  </div>
+</div>
+
+<div [class.open]="editMode" class="editor-dialog">
+  <div class="editor-dialog-content">
+    <input #editModeSource type="text" class="editor-dialog-field" />
+  </div>
+  <div class="editor-dialog-footer">
+    <button (click)="cancelEditMode()" type="button" class="editor-dialog-control">Cancel</button>
+    <button (click)="saveChanges()" type="button" class="editor-dialog-control">Save</button>
+  </div>
+</div>
